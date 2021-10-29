@@ -25,6 +25,7 @@ REGEX = {
     'text': ' \d+:\d+[а-я, ]+([^END]+)END ',
 }
 
+
 class KillplsmeParser(object):
     def __init__(self, config_path):
         self._config_path = config_path
@@ -41,12 +42,12 @@ class KillplsmeParser(object):
                                )
         self._link_page = self._config[NAME_PARSER]['link_page']
         self._max_number_pages = self._config[NAME_PARSER]['max_number_pages']
-        self._max_workers_parse = self._config['max_workers_parse']
+        self._max_workers_process = self._config['max_workers_process']
 
     def _generate_urls(self):
         self._logger.critical('Generating urls...')
         count_pages = self._max_number_pages+1
-        urls = [self._link_page .format(number) for number in range(1, count_pages)]
+        urls = [self._link_page.format(number) for number in range(1, count_pages)]
         self._logger.critical('Count of urls: {}'.format(len(urls)))
         return urls
 
@@ -84,7 +85,7 @@ class KillplsmeParser(object):
             pages = pickle.load(handle)
 
         self._logger.critical('Start Processing of pages...')
-        pool = Pool(processes=self._max_workers_parse)
+        pool = Pool(processes=self._max_workers_process)
         pool.map(self._parse_one_page, pages)
 
         self._logger.critical('The end of parsing.')

@@ -10,6 +10,8 @@
 
   - killplsme_parser_results.ipynb - образец выгрузки данных с сайта killpls.me
 
+  - zvonili_parser_results.ipynb - образец выгрузки данных с сайта zvonili.com
+
 **modules/** -- директория с кодом
   
   - engine/ -- скрипты для формирования запросов к сайту

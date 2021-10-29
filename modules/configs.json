@@ -1,14 +1,23 @@
 {"logfile_path": "../../logs",
   "out_path": "../../output",
+  "pages_saved_dir": "pages_saved",
+  "mode_save": true,
   "headers": {
     "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_5) AppleWebKit 537.36 (KHTML, like Gecko) Chrome",
     "Accept": "text/html,application/xhtml+xml,application/xml; q=0.9,image/webp,*/*;q=0.8"
   },
   "max_workers_requests": 10,
-  "max_workers_parse": 8,
+  "max_workers_process": 8,
   "KillplsmeParser": {
-    "output_file": "killplsme_",
+    "output_file": "killplsme",
     "link_page": "https://killpls.me/page/{}",
     "max_number_pages": 2936
+  },
+  "ZvoniliParser": {
+    "output_file": "zvonili",
+    "link_page": "https://zvonili.com/?page={}",
+    "link_page2": "https://zvonili.com/phone/{}",
+    "max_number_pages": 12667,
+    "df_phone_numbers": "df_phone_numbers"
   }
 }
